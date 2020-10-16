@@ -1,28 +1,22 @@
-const suits = ["hearts", "spades", "diamonds", "clubs"];
+const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const sortedCardsClasses = [];
 let selectedCard; /* eslint-disable-line */
-suits.forEach((suit) =>
-  [...Array(13)].forEach((_, i) => sortedCardsClasses.push(`${suit}-${i + 1}`))
-);
+suits.forEach((suit) => [...Array(13)].forEach((_, i) => sortedCardsClasses.push(`${suit}-${i + 1}`)));
 
-describe("Play game", () => {
-  it("Visits the game and play", () => {
-    cy.visit("./index.html");
-    cy.get(".navbar-brand img").should("have.exist");
-    cy.get(".navbar-brand")
-      .should("have.attr", "href")
-      .and("eq", "https://www.smartpension.co.uk");
-    cy.get("h1").should("have.text", "Become a software engineer at Smart");
-    cy.get("h3").should(
-      "have.text",
-      "Join Smart by simply performing a magic trick"
-    );
-    cy.get("#description").should("exist");
-    cy.get("#start-game").should("have.text", "Let's get started").click();
-    cy.get('[class*="hearts-"]').should("have.length", 13);
-    // cy.get('[class*="hearts-"]').should("have.length", 13);
-    // cy.get('[class*="hearts-"]').should("have.length", 13);
-    // cy.get('[class*="hearts-"]').should("have.length", 13);
+describe('Play game', () => {
+  it('Visits the game and play', () => {
+    cy.visit('./index.html');
+    cy.get('.navbar-brand img').should('have.exist');
+    cy.get('.navbar-brand').should('have.attr', 'href').and('eq', 'https://www.smartpension.co.uk');
+    cy.get('h1').should('have.text', 'Become a software engineer at Smart');
+    cy.get('h3').should('have.text', 'Join Smart by simply performing a magic trick');
+    // cy.get('#description').should('exist');
+    cy.get('p').should('have.exist');
+    cy.get('#start-game').should('have.text', "Let's get started").click();
+    cy.get('[class*="hearts-"]').should('have.length', 13);
+    // cy.get('[class*="diamonds-"]').should('have.length', 13);
+    // cy.get('[class*="clubs-"]').should('have.length', 13);
+    // cy.get('[class*="spades-"]').should('have.length', 13);
 
     // cy.get('#start-game').should('have.not.exist');
 
