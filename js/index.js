@@ -31,10 +31,13 @@ const selectedCardsWrapper = document.querySelector('.selected-card-wrapper');
     cardElement.addEventListener('click', () => {
       selectedCards.push(cardValues)
       selectedCardsWrapper.append(cardElement);
-      console.log(selectedCards)
     }) // do an array, map through elements and check if card is selected append to .selected-card-wrapper wrapper.
     cardsWrapper.append(cardElement);
   });
+}
+
+selectCards = () => {
+
 }
 
  shuffleCards = () => {
