@@ -2,13 +2,15 @@ const suit = ['hearts', 'clubs', 'diamonds', 'spades'];
 const hand = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'];
 const cards = [];
 const cardSpacing = 25; // Card spacing pxl's
-let selectedCards = [];
+const selectedCards = [];
 
 const cardsWrapper = document.querySelector('.cards-wrapper');
+const selectedCardsWrapper = document.querySelector('.selected-card-wrapper');
 
 // Create an array with objects containing the value and the suit of each card (done)
  createCards = () => {
-  for (let s = 0; s < suit.length; s += 1) {
+  for (let s = 0; s < suit.length; s += 1)
+  {
     for (let c = 1; c <= hand.length; c += 1) {
       const cardObject = {
         value: c,
@@ -27,14 +29,10 @@ const cardsWrapper = document.querySelector('.cards-wrapper');
     cardElement.style.left = `${positionFromLeft}px`;
     // add on on click event listener and add function which pushes cards into a selected cards array
     cardElement.addEventListener('click', () => {
-      selectedCards = cardValues
-      const test = cards.reduce(element => element === cardValues)
-      console.log(cards)
+      selectedCards.push(cardValues)
+      selectedCardsWrapper.append(cardElement);
       console.log(selectedCards)
-      console.log(test)
-      console.log(element)
-    })
-
+    }) // do an array, map through elements and check if card is selected append to .selected-card-wrapper wrapper.
     cardsWrapper.append(cardElement);
   });
 }
